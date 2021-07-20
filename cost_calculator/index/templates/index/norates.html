@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+
+<body class="bg-secondary">
+
+    <div class="container-fluid">
+
+        <div class="">
+            <h2 class="text-center font-monospace">
+                Paypal to M-pesa cost calculator
+            </h2>
+
+            <h3 class="text-center text-warning">The ammount you wish to receive: </h3>
+        </div>
+
+        <hr>
+
+        <div class="row d-flex justify-content-center">
+    
+            <div class="col-md-6">
+    
+                <h2> Without Exchage rates</h2>
+                <p>enter the ammount you wish to receive(In USD)</p>
+    
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p><input type="submit" value="Calculate" name="rates"></p>
+                </form>
+                
+                <p class="">
+                    The ammount you will pay : Usd. {{ total_ammount }}
+    
+                </p>
+    
+                <p class="">
+                    The charges you will incur : Usd. {{ total_cost }}
+                </p>
+    
+    
+            </div>
+
+            <p>
+                Go back :<a href="{% url 'index:result' %}"> Home </a>
+            </p>
+
+
+        </div>
+       
+
+    </div>
+
+</body>
+
+
+
+</html>
